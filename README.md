@@ -9,7 +9,8 @@ Place this .jar in the root of the folder you will pull from.
 The folder can be:
    - a folder with another .jar
    - a folder with a mvn project in it
-   - a folder with a docker-compose in it
+   - a folder with a docker-compose in it  
+       -  (this assumes you have a working knowledge of docker and how to set up a project to build images and send to a registry)
     
     
 Needs to be tested
