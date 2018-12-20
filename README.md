@@ -7,9 +7,9 @@ every time code is pushed to your development/production/master branch.
 
 Place this .jar in the root of the folder you will pull from.
 The folder can be:
-    - a folder with another .jar
-    - a folder with a mvn project in it
-    - a folder with a docker-compose and /images in it
+   - a folder with another .jar
+   - a folder with a mvn project in it
+   - a folder with a docker-compose and /images in it
     
     
 Needs to be tested
