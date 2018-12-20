@@ -1,18 +1,14 @@
 package com.scottrbrtsn.boiler.spring.codedeploy.services.impl;
 
-import com.scottrbrtsn.boiler.spring.codedeploy.controllers.DeployController;
 import com.scottrbrtsn.boiler.spring.codedeploy.services.IDeployService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-
 @Service
 public class DeployService implements IDeployService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DeployService.class);
-
 
     private static final String WINDOWS = "windows";
     private static final String LINUX = "linux";
@@ -77,6 +73,9 @@ public class DeployService implements IDeployService {
     private String deploy (String os, String deploymentType){
         String toReturn = SUCCESS;
         if(DOCKER.equalsIgnoreCase(deploymentType)) {
+            deployCommand(os, "docker-compose stop");
+            deployCommand(os, "docker-compose rm -f");
+            deployCommand(os, "docker-compose pull");
             deployCommand(os, "docker-compose up -d");
         } else if(MVN.equalsIgnoreCase(deploymentType)){
            deployCommand(os, "mvn clean spring-boot:run");
