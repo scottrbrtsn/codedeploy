@@ -19,6 +19,6 @@ https://ip/deploy/{os}/(branchName}/{deploymentType}
    - deploymentType = {docker, mvn, jar}
        - docker requires a valid docker registry
 
-SSL needs to be set up for this to work (http might work but I doubt you'd want to)
+@Requires SSL needs to be set up for this to work (http might work but I doubt you'd want to)
 
-Requires a public facing ip.
+@Requires a public facing ip.
