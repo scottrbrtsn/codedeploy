@@ -28,9 +28,20 @@ every time code is pushed to your development/production/master branch.
 
 #### OR
 create a deploy.bat or deploy.sh like the following
+.bat
 ```$xslt
-
-cp ./target/*.jar ../deployFolder/newRelease.jar
+set version=%1 
+cp ./target/version.jar ../deployFolder/%version%.jar
+git add .
+git commit -m 'new build'
+git push origin development
+curl http://ip/deploy/linux/development/jar
+```
+.sh
+```$xslt
+echo Filename?
+read FILENAME
+cp ./target/$FILENAME.jar ../deployFolder/$FILENAME.jar
 git add .
 git commit -m 'new build'
 git push origin development
