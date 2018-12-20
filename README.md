@@ -5,6 +5,8 @@ Run this on the server you wish to deploy from.
 Configure a HTTP hook on your Git, Bitbucket, etc. code respository to sent a request to this service 
 every time code is pushed to your development/production/master branch.
 
+AND/OR create a build .bat or .sh script which builds the jar, pushes it, and then curls this service
+
 Place this .jar in the root of the folder you will pull from.
 The folder can be:
    - a folder with another .jar
