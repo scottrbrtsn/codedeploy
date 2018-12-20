@@ -6,4 +6,5 @@ build.properties
 build.xml
 /target/
 *.idea
+/.idea/
 .DS_Store
