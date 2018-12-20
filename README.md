@@ -29,8 +29,6 @@ every time code is pushed to your development/production/master branch.
 #### OR
 Add this to the pom.xml of the project you are trying to deploy
 
-
-
 ```
 <plugin>
           <groupId>org.codehaus.mojo</groupId>
