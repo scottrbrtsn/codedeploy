@@ -27,27 +27,12 @@ Configure a HTTP hook on your Git, Bitbucket, etc. code respository to sent a re
 every time code is pushed to your development/production/master branch.
 
 #### OR
-Add this to the pom.xml of the project you are trying to deploy
+create a deploy.bat or deploy.sh like the following
+```$xslt
 
+cp ./target/*.jar ../deployFolder/newRelease.jar
+git add .
+git commit -m 'new build'
+git push origin development
+curl http://ip/deploy/linux/development/jar
 ```
-<plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>exec-maven-plugin</artifactId>
-          <version>1.2</version>
-          <executions>
-            <execution>
-              <id>curl-codedeploy</id>
-              <phase>build</phase>
-              <goals>
-                <goal>exec</goal>
-              </goals>
-              <configuration>
-                <executable>curl</executable>
-                <arguments>
-                  <argument>https://ip/deploy/linux/development/jar</argument>
-                </arguments>
-              </configuration>
-            </execution>
-          </executions>
- </plugin>
- ```
