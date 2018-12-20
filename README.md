@@ -36,8 +36,8 @@ Add this to the pom.xml of the project you are trying to deploy
           <version>1.2</version>
           <executions>
             <execution>
-              <id>promote-image</id>
-              <phase>deploy</phase>
+              <id>curl-codedeploy</id>
+              <phase>build</phase>
               <goals>
                 <goal>exec</goal>
               </goals>
