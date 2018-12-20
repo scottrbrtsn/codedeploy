@@ -21,10 +21,11 @@ public class DeployController {
     @Autowired
     IDeployService deployService;
 
-    @RequestMapping(value = "/{os}/{repositoryName}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{os}/(branchName}/{deploymentType}", method = RequestMethod.GET)
     public ResponseEntity<String> deploy(@PathVariable String os,
-                                         @PathVariable String repositoryName) {
+                                         @PathVariable String branchName,
+                                         @PathVariable String deploymentType) {
         LOGGER.debug("getATOs");
-        return new ResponseEntity<>(deployService.deploy(os, repositoryName), new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<>(deployService.deploy(os, branchName, deploymentType), new HttpHeaders(), HttpStatus.OK);
     }
 }
