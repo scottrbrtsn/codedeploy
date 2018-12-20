@@ -1,12 +1,7 @@
 # codedeploy
 
 Run this on the server you wish to deploy from.
-
-Configure a HTTP hook on your Git, Bitbucket, etc. code respository to sent a request to this service 
-every time code is pushed to your development/production/master branch.
-
-AND/OR create a build .bat or .sh script which builds the jar, pushes it, and then curls this service
-
+        
 Place this .jar in the root of the folder you will pull from.
 The folder can be:
    - a folder with another .jar
@@ -25,3 +20,36 @@ https://ip/deploy/{os}/(branchName}/{deploymentType}
 @Requires SSL needs to be set up for this to work (http might work but I doubt you'd want to)
 
 @Requires a public facing ip.
+
+
+## Setup 
+Configure a HTTP hook on your Git, Bitbucket, etc. code respository to sent a request to this service 
+every time code is pushed to your development/production/master branch.
+
+#### OR
+Add this to the pom.xml of the project you are trying to deploy
+
+
+
+```
+<plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>1.2</version>
+          <executions>
+            <execution>
+              <id>promote-image</id>
+              <phase>deploy</phase>
+              <goals>
+                <goal>exec</goal>
+              </goals>
+              <configuration>
+                <executable>curl</executable>
+                <arguments>
+                  <argument>https://ip/deploy/linux/development/jar</argument>
+                </arguments>
+              </configuration>
+            </execution>
+          </executions>
+ </plugin>
+ ```
